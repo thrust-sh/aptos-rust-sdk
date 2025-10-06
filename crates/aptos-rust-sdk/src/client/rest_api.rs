@@ -156,8 +156,6 @@ impl AptosFullnodeClient {
             .send()
             .await?;
 
-        println!("{:?}", response);
-
         let parsable_response = ParsableResponse(response);
         parsable_response.parse_response().await
     }
