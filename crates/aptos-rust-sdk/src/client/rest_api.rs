@@ -37,7 +37,7 @@ impl AptosFullnodeClient {
     pub async fn get_transaction_by_hash(
         &self,
         hash: String,
-    ) -> AptosResult<FullnodeResponse<String>> {
+    ) -> AptosResult<FullnodeResponse<serde_json::Value>> {
         let url = self.build_rest_path(&format!("v1/transactions/by_hash/{}", hash))?;
         self.rest_get(url).await
     }
